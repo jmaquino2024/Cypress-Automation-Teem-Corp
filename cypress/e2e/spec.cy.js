@@ -53,6 +53,8 @@ describe('User Registration and Login', () => {
     cy.xpath('//a[contains(@href, "/company-information") and contains(text(), "Company Information")]').click();
     cy.url().should('eq', `${baseUrl}/company-information`);
 
+    cy.wait(500); // Wait for 500ms after typing
+
     cy.xpath('//input[@placeholder="Symbol"]').type('AAA').should('have.value', 'AAA');
     cy.xpath('//button[contains(@class, "bg-indigo-500") and contains(text(), "Get Profile")]').click();
     
@@ -75,6 +77,8 @@ describe('User Registration and Login', () => {
     // Navigate to Company Quote
     cy.xpath('//a[contains(@href, "/company-quote") and contains(text(), "Company Quote")]').click();
     cy.url().should('eq', `${baseUrl}/company-quote`);
+
+    cy.wait(500); // Wait for 500ms after typing
     
     cy.xpath('//input[@placeholder="Symbol"]').type('AAA');
     cy.xpath('//button[contains(text(), "Get Full Quote")]').click();
